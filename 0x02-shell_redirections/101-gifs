@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type f -empty -exec file -b {} \; -o -type d -empty -exec file -b {} \; | cut -d ':' -f 1 | sed 's|.*/||'
+find . -type f -name "*.gif" -exec sh -c 'file="$1"; basename="${file%.*}"; echo "$basename"' sh {} \; | LC_ALL=C sort -f
