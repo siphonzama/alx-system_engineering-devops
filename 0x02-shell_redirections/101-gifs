@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type f  -name "*.gifs" | rev | cut - "/" -f 1 | cut -d '.' 2- |LC_ALL=C sort -f
+find . -type f -empty -exec file -b {} \; -o -type d -empty -exec file -b {} \; | cut -d ':' -f 1 | sed 's|.*/||'
